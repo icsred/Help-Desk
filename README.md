@@ -42,3 +42,11 @@ Son tres los usuarios principales y las plataformas que usarán para tener acces
 
 **Como mantra: "No haremos otro PGP"**
 
+---
+# Agentes presentes en PGP
+1. Infraestructura
+2. Patrimonio
+3. Calidad
+4. Maestranza
+
+Una primera etapa de este proyecto alcanza a los tickets de Infraestructura pero debería soportar en un futuro nuevos agentes (no usuarios agente sino áreas distintas).

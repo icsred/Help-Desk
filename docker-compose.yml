@@ -1,0 +1,24 @@
+services:
+  frontend:
+    image: frontend-react
+    container_name: frontend-react
+    build: ./frontend-helpdesk
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+
+  backend:
+    image: backend-flask
+    container_name: backend-flask
+    build: ./backend-helpdesk
+    ports:
+      - 80:80
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mvertes/alpine-mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017

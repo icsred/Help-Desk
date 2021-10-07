@@ -1,26 +1,30 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import { BrowserRouter as Router} from "react-router-dom";
-
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { useState, useEffect } from 'react';
 import { getTickets } from './services/store-service';
-import Navbar from './components/Nav';
-import Footer from './components/Footer'
 
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import Tickets from './components/tickets/Tickets';
+import { Container } from 'react-bootstrap';
 
 function App() {
-  return (
-    <div className="App">
-      <Navbar />
-     <button onClick={getTicketsPage} >Crear</button>
-     <Footer />
-    </div>
-  );
-}
+  const [tickets, setTickets] = useState([]);
 
-const getTicketsPage = () => {
-  return getTickets();
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    setTickets(await getTickets());
+  };
+
+  return (
+    <Container>
+      <Navbar />
+      <Tickets tickets={tickets} />
+      <Footer />
+    </Container>
+  );
 }
 
 export default App;

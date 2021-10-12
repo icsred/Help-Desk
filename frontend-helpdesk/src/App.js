@@ -4,11 +4,13 @@ import { getTickets } from './services/store-service';
 
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
-import Tickets from './components/tickets/Tickets';
+import Panel from './components/panel/Panel';
 import { Container } from 'react-bootstrap';
 
 function App() {
   const [tickets, setTickets] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const ticketsPerPage = 5;
 
   useEffect(() => {
     fetchData();
@@ -18,10 +20,26 @@ function App() {
     setTickets(await getTickets());
   };
 
+  const getPageNumber = () => {
+    return Math.ceil(tickets.length / ticketsPerPage);
+  };
+
+  const getCurrentTickets = () => {
+    const lastTicketIndex = currentPage * ticketsPerPage;
+    const firstTicketIndex = lastTicketIndex - ticketsPerPage;
+    const currentTickets = tickets.slice(firstTicketIndex, lastTicketIndex);
+    return currentTickets;
+  };
+
   return (
     <Container>
       <Navbar />
-      <Tickets tickets={tickets} />
+      <Panel
+        tickets={getCurrentTickets()}
+        currentPage={currentPage}
+        pageNumber={getPageNumber()}
+        setCurrentPage={setCurrentPage}
+      />
       <Footer />
     </Container>
   );

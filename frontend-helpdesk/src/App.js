@@ -20,10 +20,12 @@ function App() {
     setTickets(await getTickets());
   };
 
+  // Calcular el numero de total paginas
   const getPageNumber = () => {
     return Math.ceil(tickets.length / ticketsPerPage);
   };
 
+  // Calcular los tickets que deben haber en la pagina actual
   const getCurrentTickets = () => {
     const lastTicketIndex = currentPage * ticketsPerPage;
     const firstTicketIndex = lastTicketIndex - ticketsPerPage;

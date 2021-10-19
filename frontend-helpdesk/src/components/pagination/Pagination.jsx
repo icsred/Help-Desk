@@ -2,16 +2,17 @@ import React from 'react';
 import { Pagination } from 'react-bootstrap';
 
 const CustomPagination = ({ pageNumber, currentPage, setCurrentPage }) => {
-  const pagesArr = [];
+  const pagesList = [];
 
+  // Crear lista con el numero de paginas para generar la paginacion
   for (let i = 1; i <= pageNumber; i++) {
-    pagesArr.push(i);
+    pagesList.push(i);
   }
 
   return (
     <Pagination className="justify-content-center m-0">
       <Pagination.First onClick={() => setCurrentPage(1)} />
-      {pagesArr.map(page => (
+      {pagesList.map(page => (
         <Pagination.Item
           key={page}
           className={currentPage === page ? 'active' : ''}

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import { Table, Button } from 'react-bootstrap';
 
@@ -9,7 +10,7 @@ const Tickets = ({ tickets }) => {
         <tr>
           <th>#</th>
           <th>Título</th>
-          <th>Dia</th>
+          <th>Fecha</th>
           <th>Descripción</th>
           <th>Creador</th>
           <th>Prioridad</th>
@@ -22,7 +23,7 @@ const Tickets = ({ tickets }) => {
           <tr key={ticket.number}>
             <td>{ticket.number}</td>
             <td>{ticket.title}</td>
-            <td>{ticket.date}</td>
+            <td>{moment(ticket.date).format('DD/MM/YYYY hh:mm a')}</td>
             <td>{ticket.description}</td>
             <td>{ticket.creator}</td>
             <td>{ticket.priority}</td>

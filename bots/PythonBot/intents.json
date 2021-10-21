@@ -1,0 +1,16 @@
+{
+  "intents" : [
+    {
+      "tag" : "saludos",
+      "patterns" : ["Hola","Hey","ey","Hi", "hello","holita", "holi","que onda","Que onda pa" ,"che que pasa","Hey", "que tal", "que pasa", "Buenas", "buenos dias", "buenas tardes", "buenas noches"],
+      "responses" : ["¡Hola! ¿Que estacion del año te gusta más?"]
+    },
+    {
+      "tag" : "invierno",
+      "patterns" : ["El invierno", "la mas fria", "En la que hace mas frio", "mi estacion favorita es la de invierno", "Me gusta el invierno", "Me encanta la nieve", " Me apasiona el frio", "Me gusta pasar frio", "invierno"],
+      "responses" : ["Tienes muy mal gusto", "¿De verdad te gusta pasar frio?", "¿Porqué te gusta el inverno?"]
+    }
+
+
+  ]
+}

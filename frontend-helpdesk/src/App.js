@@ -21,9 +21,7 @@ function App() {
   };
 
   // Calcular el numero de total paginas
-  const getPageNumber = () => {
-    return Math.ceil(tickets.length / ticketsPerPage);
-  };
+  const getPageNumber = () => Math.ceil(tickets.length / ticketsPerPage);
 
   // Calcular los tickets que deben haber en la pagina actual
   const getCurrentTickets = () => {

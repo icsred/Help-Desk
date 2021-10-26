@@ -3,6 +3,8 @@ import Tickets from '../tickets/Tickets';
 import Pagination from '../pagination/Pagination';
 import { Card } from 'react-bootstrap';
 import { BsQuestionCircleFill } from 'react-icons/bs';
+import './panel.scss'
+
 
 const Panel = ({ tickets, currentPage, pageNumber, setCurrentPage }) => {
   return (
@@ -12,7 +14,7 @@ const Panel = ({ tickets, currentPage, pageNumber, setCurrentPage }) => {
           <BsQuestionCircleFill /> Panel de tickets
         </h4>
       </Card.Header>
-      <Card.Body className="p-4">
+      <Card.Body className="pb-3">
         <Tickets tickets={tickets} />
       </Card.Body>
       <Card.Footer>

@@ -49,8 +49,8 @@ async def post_ticket(ticket:Ticket):
   raise HTTPException(400, "Bad Request")
 
 @app.put("/api/todo{title}", response_model=Ticket)
-async def put_ticket(title:str, description:str):
-  response = await update_ticket(title, description)
+async def put_ticket(title:str, issue:str):
+  response = await update_ticket(title, issue)
   if response:
     return response
   raise HTTPException(400, "No hay un item con este título")

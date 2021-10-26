@@ -5,7 +5,7 @@ class Ticket (BaseModel):
   number: int
   title: str
   date: datetime
-  description: str
+  issue: str
   creator: str
   priority: str
   assignedTo: str

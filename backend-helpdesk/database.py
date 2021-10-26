@@ -29,8 +29,7 @@ async def create_ticket(ticket):
   result = await collection.insert_one(document)
   return document
 
-async def update_ticket(description):
-  await collection.update_one({"$set":{"description":description}})
-  document = await collection.find_one({"title":description})
+async def update_ticket(issue):
+  await collection.update_one({"$set":{"issue":issue}})
+  document = await collection.find_one({"title":issue})
   return document
-

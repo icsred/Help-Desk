@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pagination } from 'react-bootstrap';
+import './pagination.scss';
 
 const CustomPagination = ({ pageNumber, currentPage, setCurrentPage }) => {
   const pagesList = [];
@@ -52,7 +53,7 @@ const CustomPagination = ({ pageNumber, currentPage, setCurrentPage }) => {
   const nextPage = () => (currentPage < pageNumber ? setCurrentPage(currentPage + 1) : null);
 
   return (
-    <Pagination className="justify-content-center m-0">
+    <Pagination className="justify-content-center m-0 estiloPaginado">
       <Pagination.First onClick={previousPage} />
       {pagesList.map((page, index) =>
         page !== 0 ? (

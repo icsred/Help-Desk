@@ -1,5 +1,12 @@
 from pydantic import BaseModel
+from enum import Enum
 from datetime import datetime
+
+class Status (str, Enum):
+  open = 'open'
+  answered = 'answered'
+  expired = 'expired'
+  closed = 'closed'
 
 class Ticket (BaseModel):
   number: int
@@ -9,3 +16,5 @@ class Ticket (BaseModel):
   creator: str
   priority: str
   assignedTo: str
+  status: Status = Status.open
+

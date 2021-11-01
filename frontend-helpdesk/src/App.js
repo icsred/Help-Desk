@@ -52,7 +52,12 @@ function App() {
       <Navbar />
       <Row>
         <Col lg={3}>
-          <Menu tickets={tickets} currentTab={currentTab} setCurrentTab={setCurrentTab} />
+          <Menu
+            tickets={tickets}
+            currentTab={currentTab}
+            setCurrentTab={setCurrentTab}
+            setCurrentPage={setCurrentPage}
+          />
         </Col>
         <Col lg={9}>
           <Panel

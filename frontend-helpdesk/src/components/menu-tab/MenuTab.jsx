@@ -2,10 +2,15 @@ import React from 'react';
 import './menuTab.scss';
 import { ListGroup, Badge } from 'react-bootstrap';
 
-const MenuItem = ({ children, ticketNumber, tabId, currentTab, setCurrentTab }) => {
+const MenuItem = ({ children, ticketNumber, tabId, currentTab, setCurrentTab, setCurrentPage }) => {
+  const handleClick = () => {
+    setCurrentTab(tabId);
+    setCurrentPage(1);
+  };
+
   return (
     <ListGroup.Item
-      onClick={() => setCurrentTab(tabId)}
+      onClick={handleClick}
       active={currentTab === tabId ? true : false}
       as="li"
       className="d-flex justify-content-between align-items-start"

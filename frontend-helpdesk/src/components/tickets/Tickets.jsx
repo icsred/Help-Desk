@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import {useTable, useSortBy} from 'react-table'; //npm install react-table
+import React from 'react';
 import moment from 'moment';
 import './tickets.scss';
-
-import { Table, Button } from 'react-bootstrap';
-
+import { Table, FormCheck } from 'react-bootstrap';
 
 const Tickets = ({ tickets }) => {
   return (
-
-    <Table data= {Tickets} id="tickets" className="sortable text-center m-0 rounded-top" striped bordered hover>
+    <Table id="tickets" className="sortable text-center m-0 rounded-top" striped bordered hover>
       <thead>
-        <tr >
-          <th>#</th>
+        <tr>
+          <th className="sorttable_nosort">#</th>
           <th>#</th>
           <th>Fecha</th>
           <th>Título</th>
@@ -21,13 +17,13 @@ const Tickets = ({ tickets }) => {
           <th>Prioridad</th>
           <th>Asignado</th>
         </tr>
-
-
       </thead>
-      <tbody >
+      <tbody>
         {tickets.map(ticket => (
           <tr key={ticket.number}>
-            <td><input type="checkbox"></input></td>
+            <td>
+              <FormCheck className="checkbox" />
+            </td>
             <td>{ticket.number}</td>
             <td>{moment(ticket.date).format('DD/MM/YYYY hh:mm a')}</td>
             <td>{ticket.title}</td>
@@ -38,11 +34,8 @@ const Tickets = ({ tickets }) => {
           </tr>
         ))}
       </tbody>
-
     </Table>
-    
   );
-  
 };
 
 export default Tickets;

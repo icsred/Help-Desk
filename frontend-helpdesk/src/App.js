@@ -5,41 +5,64 @@ import { getTickets } from './services/store-service';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Panel from './components/panel/Panel';
-import { Container } from 'react-bootstrap';
+import Menu from './components/menu/Menu';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function App() {
-  const [tickets, setTickets] = useState([]);
+  const [tickets, setTickets] = useState({
+    open: [],
+    answered: [],
+    expired: [],
+    closed: [],
+  });
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentTab, setCurrentTab] = useState('open');
   const ticketsPerPage = 5;
 
   useEffect(() => {
+    const fetchData = async () => setTickets(groupTickets(await getTickets()));
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    setTickets(await getTickets());
+  // Agrupar tickets por estados
+  const groupTickets = loadedTickets => {
+    const groupedTickets = {
+      open: [],
+      answered: [],
+      expired: [],
+      closed: [],
+    };
+    loadedTickets.forEach(ticket => groupedTickets[ticket.status].push(ticket));
+    return groupedTickets;
   };
 
   // Calcular el numero de total paginas
-  const getPageNumber = () => Math.ceil(tickets.length / ticketsPerPage);
+  const getPageNumber = () => Math.ceil(tickets[currentTab].length / ticketsPerPage);
 
   // Calcular los tickets que deben haber en la pagina actual
-  const getCurrentTickets = () => {
+  const getTicketsByPage = () => {
     const lastTicketIndex = currentPage * ticketsPerPage;
     const firstTicketIndex = lastTicketIndex - ticketsPerPage;
-    const currentTickets = tickets.slice(firstTicketIndex, lastTicketIndex);
+    const currentTickets = tickets[currentTab].slice(firstTicketIndex, lastTicketIndex);
     return currentTickets;
   };
 
   return (
     <Container>
       <Navbar />
-      <Panel
-        tickets={getCurrentTickets()}
-        currentPage={currentPage}
-        pageNumber={getPageNumber()}
-        setCurrentPage={setCurrentPage}
-      />
+      <Row>
+        <Col lg={3}>
+          <Menu tickets={tickets} currentTab={currentTab} setCurrentTab={setCurrentTab} />
+        </Col>
+        <Col lg={9}>
+          <Panel
+            tickets={getTicketsByPage()}
+            currentPage={currentPage}
+            pageNumber={getPageNumber()}
+            setCurrentPage={setCurrentPage}
+          />
+        </Col>
+      </Row>
       <Footer />
     </Container>
   );

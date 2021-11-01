@@ -1,27 +1,16 @@
-.estiloPaginado > li > a
-{
-    background-color: white;
-    color: black;
-    border: solid 1px rgb(229, 39, 59) !Important;
+.estiloPaginado > li > a {
+  background-color: white;
+  color: black;
+  border: solid 1px rgb(229, 39, 59) !important;
 }
 
-.estiloPaginado > li > a:hover
-{
+.estiloPaginado > li > a:hover {
   background-color: rgb(229, 39, 59);
-  color:white
+  color: white;
 }
 
-
-.estiloPaginado > .active > a
-{
-    color: white;
-    background-color: rgb(229, 39, 59) !Important;
-    border: solid 1px rgb(229, 39, 59) !Important;
-}
-
-.estiloPaginado > .active > a:hover
-{
-    background-color: white !Important;
-    border: solid 1px white;
-    color: black;
+.estiloPaginado > .active > a {
+  color: white;
+  background-color: rgb(229, 39, 59) !important;
+  border: solid 1px rgb(229, 39, 59) !important;
 }

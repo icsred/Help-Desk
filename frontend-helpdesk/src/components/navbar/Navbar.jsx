@@ -5,11 +5,13 @@ import { FaSignOutAlt, FaUserAlt } from 'react-icons/fa';
 const CustomNavbar = () => {
   return (
     <Navbar className="px-5" bg="danger" variant="dark" expand="lg">
-      <Navbar.Brand href="#home">Help Desk</Navbar.Brand>
+       <Navbar.Brand href="#home">
+          <img src="https://i.imgur.com/mg1burf.png"></img>
+        </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          <Nav.Link href="#home">Panel del agente</Nav.Link>
+        <Nav className="navbar ms-auto">
+          <Nav.Link href="#home">Panel de agente</Nav.Link>
           <NavDropdown
             title={
               <span>

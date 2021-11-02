@@ -48,28 +48,30 @@ function App() {
   };
 
   return (
-    <Container>
+    <div className="app">
       <Navbar />
-      <Row>
-        <Col lg={3}>
-          <Menu
-            tickets={tickets}
-            currentTab={currentTab}
-            setCurrentTab={setCurrentTab}
-            setCurrentPage={setCurrentPage}
-          />
-        </Col>
-        <Col lg={9}>
-          <Panel
-            tickets={getTicketsByPage()}
-            currentPage={currentPage}
-            pageNumber={getPageNumber()}
-            setCurrentPage={setCurrentPage}
-          />
-        </Col>
-      </Row>
+      <Container>
+        <Row>
+          <Col lg={3}>
+            <Menu
+              tickets={tickets}
+              currentTab={currentTab}
+              setCurrentTab={setCurrentTab}
+              setCurrentPage={setCurrentPage}
+            />
+          </Col>
+          <Col lg={9}>
+            <Panel
+              tickets={getTicketsByPage()}
+              currentPage={currentPage}
+              pageNumber={getPageNumber()}
+              setCurrentPage={setCurrentPage}
+            />
+          </Col>
+        </Row>
+      </Container>
       <Footer />
-    </Container>
+    </div>
   );
 }
 

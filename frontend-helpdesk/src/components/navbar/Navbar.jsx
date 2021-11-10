@@ -5,9 +5,9 @@ import { FaSignOutAlt, FaUserAlt } from 'react-icons/fa';
 const CustomNavbar = () => {
   return (
     <Navbar className="px-5" bg="danger" variant="dark" expand="lg">
-       <Navbar.Brand href="#home">
-          <img src="https://i.imgur.com/mg1burf.png"></img>
-        </Navbar.Brand>
+      <Navbar.Brand href="#home">
+        <img src="https://i.imgur.com/mg1burf.png" alt="logo"></img>
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="navbar ms-auto">

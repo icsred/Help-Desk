@@ -17,7 +17,7 @@ function App() {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [currentTab, setCurrentTab] = useState('open');
-  const ticketsPerPage = 5;
+  const [ticketsPerPage, setTicketsPerPage] = useState(5);
 
   useEffect(() => {
     const fetchData = async () => setTickets(groupTickets(await getTickets()));
@@ -66,6 +66,8 @@ function App() {
               currentPage={currentPage}
               pageNumber={getPageNumber()}
               setCurrentPage={setCurrentPage}
+              ticketsPerPage={ticketsPerPage}
+              setTicketsPerPage={setTicketsPerPage}
             />
           </Col>
         </Row>

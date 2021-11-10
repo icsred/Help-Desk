@@ -1,7 +1,8 @@
-from model import Ticket
-from fastapi import FastAPI, HTTPException
+from model import Ticket ### Se importa el modelo "Ticket" para poder utilizarlo y consultarlo en este archivo
+from fastapi import FastAPI, HTTPException ### Con esta librería se implementa el backend, su ventaja es que se pueden ejecutar los métodos que uno crea de forma visual
 
 from database import (
+  #Importo consultas a la BD#
   fetch_one_ticket,
   fetch_all_tickets,
   create_ticket,
@@ -9,15 +10,16 @@ from database import (
   
 )
 
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware ### Soluciona errores de consulta en dominios externos
 
 #Objeto APP
 app = FastAPI()
 
-#Conecto el front con el back
+### Acá se indica que el frontend va a estar en un puerto distinto al backend, CORS permite esto
 origins = ['http://localhost:3000']
 
 app.add_middleware(
+  ### Permisos de CORS ###
   CORSMiddleware,
   allow_origins=["*"],
   allow_credentials = True,
@@ -25,6 +27,7 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
+###Funcines que son ejecutadas sobre la API, las cuales buscan la info en "database"
 @app.get("/")
 def read_root():
   return {"Fernando": "Ale"}

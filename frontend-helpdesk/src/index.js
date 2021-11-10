@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
+  //Muestro en pantalla el componente "App", el cual está embebido dentro de "root"
   <React.StrictMode>
     <App />
   </React.StrictMode>,

@@ -53,7 +53,7 @@ const CustomPagination = ({ pageNumber, currentPage, setCurrentPage }) => {
   const nextPage = () => (currentPage < pageNumber ? setCurrentPage(currentPage + 1) : null);
 
   return (
-    <Pagination className="justify-content-center m-0 estiloPaginado">
+    <Pagination className="justify-content-center m-0 mb-5 estiloPaginado">
       <Pagination.First onClick={previousPage} />
       {pagesList.map((page, index) =>
         page !== 0 ? (

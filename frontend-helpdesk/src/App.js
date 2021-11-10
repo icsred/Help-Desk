@@ -48,6 +48,7 @@ function App() {
   };
 
   return (
+    //Se estructuran los datos con componentes HTML en formato React para visualizarlos en pantalla
     <div className="app">
       <Navbar />
       <Container>

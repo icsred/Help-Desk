@@ -34,7 +34,7 @@ const Panel = ({ tickets, currentPage, pageNumber, setCurrentPage, setTicketsPer
             <SearchBar placeholder="Buscar un ticket" />
           </Col>
           <Col md={2}>
-            <Dropdown options={ticketOptions} onChange={changeTicketsPerPage} />
+            <Dropdown options={ticketOptions} changeHandler={changeTicketsPerPage} />
           </Col>
         </Row>
         <Tickets tickets={tickets} />

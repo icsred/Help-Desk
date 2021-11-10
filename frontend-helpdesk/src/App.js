@@ -67,7 +67,6 @@ function App() {
               currentPage={currentPage}
               pageNumber={getPageNumber()}
               setCurrentPage={setCurrentPage}
-              ticketsPerPage={ticketsPerPage}
               setTicketsPerPage={setTicketsPerPage}
             />
           </Col>

@@ -5,6 +5,7 @@ import { Card, Row, Col } from 'react-bootstrap';
 import { BsQuestionCircleFill } from 'react-icons/bs';
 import './panel.scss';
 import Dropdown from '../dropdown/Dropdown';
+import SearchBar from '../search-bar/SearchBar';
 
 const Panel = ({ tickets, currentPage, pageNumber, setCurrentPage, setTicketsPerPage }) => {
   const ticketOptions = [
@@ -29,7 +30,9 @@ const Panel = ({ tickets, currentPage, pageNumber, setCurrentPage, setTicketsPer
       </Card.Header>
       <Card.Body className="pb-3">
         <Row className="actions mb-3">
-          <Col md={10}></Col>
+          <Col md={10}>
+            <SearchBar placeholder="Buscar un ticket" />
+          </Col>
           <Col md={2}>
             <Dropdown options={ticketOptions} onChange={changeTicketsPerPage} />
           </Col>

@@ -2,10 +2,10 @@ import React from 'react';
 import { FormSelect } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
-const Dropdown = ({ options, onChange }) => {
+const Dropdown = ({ options, changeHandler }) => {
   const [selectedOption, setSelectedOption] = useState(options[0].value);
 
-  useEffect(() => onChange(selectedOption), [onChange, selectedOption]);
+  useEffect(() => changeHandler(selectedOption), [selectedOption]);
 
   return (
     <FormSelect

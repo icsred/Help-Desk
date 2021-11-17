@@ -50,3 +50,41 @@ Son tres los usuarios principales y las plataformas que usarán para tener acces
 4. Maestranza
 
 Una primera etapa de este proyecto alcanza a los tickets de Infraestructura pero debería soportar en un futuro nuevos agentes (no usuarios agente sino áreas distintas).
+
+---
+
+# Docker
+
+Guía para poder correr y utilizar la aplicación en contenedores.
+
+**Descargar docker desktop**
+
+https://www.docker.com/products/docker-desktop
+
+**Clonar el proyecto**
+```
+git clone https://github.com/icsred/Help-Desk.git
+```
+**Cambiar la url de conexión a MongoDB**
+
+- Abrir fichero [database.py](/backend-helpdesk/database.py)
+
+- Cambiar ```'mongodb://localhost:27017'``` por ```'mongodb://mongodb:27017'```
+
+**Crear composición de contenedores**
+
+Ejecutar comando en la raíz del proyecto (Este comando creará una composición de tres contenedores): 
+```
+docker compose up -d 
+```
+**Añadir tickets**
+
+- Abrir URL de FastAPI: http://localhost:8000/docs
+- Seleccionar método post
+- Hacer click en 'Try it out'
+- Modificar el JSON del ticket para cambiar sus atributos
+- Hacer click en 'Execute' para añadir un ticket a la base de datos
+
+**Visualizar el frontend**
+
+Para visualizar el frontend sólo tienes que abrir la siguente URL en tu navegador: http://localhost:3000/

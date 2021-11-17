@@ -18,6 +18,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentTab, setCurrentTab] = useState('open');
   const [ticketsPerPage, setTicketsPerPage] = useState(5);
+  const [searchOption, setSearchOption] = useState('title');
+  const [searchField, setSearchField] = useState('');
 
   useEffect(() => {
     const fetchData = async () => setTickets(groupTickets(await getTickets()));
@@ -47,6 +49,11 @@ function App() {
     return currentTickets;
   };
 
+  // Filtrar tickets por búsqueda
+  const getFilteredTickets = () => {
+    return tickets[currentTab].filter(ticket => ticket[searchOption].toLowerCase().includes(searchField.toLowerCase()));
+  };
+
   return (
     //Se estructuran los datos con componentes HTML en formato React para visualizarlos en pantalla
     <div className="app">
@@ -63,11 +70,13 @@ function App() {
           </Col>
           <Col lg={9}>
             <Panel
-              tickets={getTicketsByPage()}
+              tickets={getFilteredTickets() || getTicketsByPage()}
               currentPage={currentPage}
               pageNumber={getPageNumber()}
               setCurrentPage={setCurrentPage}
               setTicketsPerPage={setTicketsPerPage}
+              setSearchOption={setSearchOption}
+              setSearchField={setSearchField}
             />
           </Col>
         </Row>

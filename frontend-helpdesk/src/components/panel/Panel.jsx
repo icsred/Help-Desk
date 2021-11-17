@@ -7,7 +7,16 @@ import './panel.scss';
 import Dropdown from '../dropdown/Dropdown';
 import SearchBar from '../search-bar/SearchBar';
 
-const Panel = ({ tickets, currentPage, pageNumber, setCurrentPage, setTicketsPerPage }) => {
+const Panel = ({
+  tickets,
+  currentPage,
+  pageNumber,
+  setCurrentPage,
+  setTicketsPerPage,
+  setSearchOption,
+  setSearchField,
+}) => {
+  // Opciones que tendrá el dropdown de selección de tickets por página
   const ticketOptions = [
     { content: 5, value: 5 },
     { content: 10, value: 10 },
@@ -31,7 +40,11 @@ const Panel = ({ tickets, currentPage, pageNumber, setCurrentPage, setTicketsPer
       <Card.Body className="pb-3">
         <Row className="actions mb-3">
           <Col md={10}>
-            <SearchBar placeholder="Buscar un ticket" />
+            <SearchBar
+              setSearchField={setSearchField}
+              setSearchOption={setSearchOption}
+              placeholder="Buscar un ticket"
+            />
           </Col>
           <Col md={2}>
             <Dropdown options={ticketOptions} changeHandler={changeTicketsPerPage} />

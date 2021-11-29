@@ -1,5 +1,6 @@
 import './App.scss';
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getTickets } from './services/store-service';
 
 import Navbar from './components/navbar/Navbar';
@@ -56,33 +57,35 @@ function App() {
 
   return (
     //Se estructuran los datos con componentes HTML en formato React para visualizarlos en pantalla
-    <div className="app">
-      <Navbar />
-      <Container>
-        <Row>
-          <Col lg={3}>
-            <Menu
-              tickets={tickets}
-              currentTab={currentTab}
-              setCurrentTab={setCurrentTab}
-              setCurrentPage={setCurrentPage}
-            />
-          </Col>
-          <Col lg={9}>
-            <Panel
-              tickets={getFilteredTickets() || getTicketsByPage()}
-              currentPage={currentPage}
-              pageNumber={getPageNumber()}
-              setCurrentPage={setCurrentPage}
-              setTicketsPerPage={setTicketsPerPage}
-              setSearchOption={setSearchOption}
-              setSearchField={setSearchField}
-            />
-          </Col>
-        </Row>
-      </Container>
-      <Footer />
-    </div>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <Container>
+          <Row>
+            <Col lg={3}>
+              <Menu
+                tickets={tickets}
+                currentTab={currentTab}
+                setCurrentTab={setCurrentTab}
+                setCurrentPage={setCurrentPage}
+              />
+            </Col>
+            <Col lg={9}>
+              <Panel
+                tickets={getFilteredTickets() || getTicketsByPage()}
+                currentPage={currentPage}
+                pageNumber={getPageNumber()}
+                setCurrentPage={setCurrentPage}
+                setTicketsPerPage={setTicketsPerPage}
+                setSearchOption={setSearchOption}
+                setSearchField={setSearchField}
+              />
+            </Col>
+          </Row>
+        </Container>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

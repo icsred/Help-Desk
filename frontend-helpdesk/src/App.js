@@ -9,6 +9,8 @@ import Panel from './components/panel/Panel';
 import Menu from './components/menu/Menu';
 import { Container, Row, Col } from 'react-bootstrap';
 
+import Detalle from './components/detalle/Detalle';
+
 function App() {
   const [tickets, setTickets] = useState({
     open: [],
@@ -60,29 +62,55 @@ function App() {
     <Router>
       <div className="app">
         <Navbar />
-        <Container>
-          <Row>
-            <Col lg={3}>
-              <Menu
-                tickets={tickets}
-                currentTab={currentTab}
-                setCurrentTab={setCurrentTab}
-                setCurrentPage={setCurrentPage}
-              />
-            </Col>
-            <Col lg={9}>
-              <Panel
-                tickets={getFilteredTickets() || getTicketsByPage()}
-                currentPage={currentPage}
-                pageNumber={getPageNumber()}
-                setCurrentPage={setCurrentPage}
-                setTicketsPerPage={setTicketsPerPage}
-                setSearchOption={setSearchOption}
-                setSearchField={setSearchField}
-              />
-            </Col>
-          </Row>
-        </Container>
+
+        <Switch>
+          <Route path="/detalle">
+            <Container>
+            <Row>
+              <Col lg={3}>
+                <Menu
+                      tickets={tickets}
+                      currentTab={currentTab}
+                      setCurrentTab={setCurrentTab}
+                      setCurrentPage={setCurrentPage}
+                />
+              </Col>
+              <Col lg={9}>
+                <Detalle />
+              </Col>
+            </Row>
+            </Container>
+          </Route>
+
+          <Route path="/">
+            <Container>
+            <Row>
+              <Col lg={3}>
+                <Menu
+                  tickets={tickets}
+                  currentTab={currentTab}
+                  setCurrentTab={setCurrentTab}
+                  setCurrentPage={setCurrentPage}
+                />
+              </Col>
+              <Col lg={9}>
+                <Panel
+                  tickets={getFilteredTickets() || getTicketsByPage()}
+                  currentPage={currentPage}
+                  pageNumber={getPageNumber()}
+                  setCurrentPage={setCurrentPage}
+                  setTicketsPerPage={setTicketsPerPage}
+                  setSearchOption={setSearchOption}
+                  setSearchField={setSearchField}
+                />
+              </Col>
+            </Row>
+            </Container>
+          </Route>
+        </Switch>
+
+        
+
         <Footer />
       </div>
     </Router>

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICSRED</title>
+
+
+<!--Bootstrap-->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+crossorigin="anonymous">
+
+
+<!--CSS-->
+<link href="./styles/styles.css" rel="stylesheet" type="text/css">
+
+<!-- Iconos -->
+<script
+src="https://kit.fontawesome.com/ff733e6304.js"
+crossorigin="anonymous"
+></script>
+
+
+</head>
+<body class="bg">
+  
+  <section class="sticky-top" id="barra">
+
+    <nav class="navbar navbar-expand-sm bg-danger navbar-light py-1 ">
+
+      <button data-target="#navbarNav" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+          
+      </button>
+
+      <div class="collapse navbar-collapse d-flex mb-auto" id="navbarNav">
+            
+        <a class="navbar-brand ml-5" href="{{ url_for('panelagente') }}"><img src="../static/logoics.png" alt="Logo"></a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto align-top">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="{{ url_for('panelagente') }} " >Panel de agente <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item dropdown mr-3">
+              <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
+                ><i class="fas fa-user"></i> Bienvenido </a
+              >
+              <div class="dropdown-menu">
+                <a href="" class="dropdown-item"
+                  ><i class="fas fa-user-circle"></i> Perfil</a
+                >
+  
+                <a href="#" class="dropdown-item"
+                  ><i class="fas fa-cog"></i> Configuraciones</a
+                >
+              </div>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link text-white" href=""><i class="fas fa-sign-out-alt"></i> Salir <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!--LAYOUT PRINCIPAL-->
+  <div class="container-fluid mt-5">
+    <div class="row">
+        <!--LAYOUT 3 COLUMNAS-->
+      <div class="col-sm-12 col-md-3">
+        <div class="card border border-dark">
+          <div class="card-header bg-white text-black " >
+            <h4><i class="fas fa-align-justify"></i> Menú Principal</h4>
+          </div>
+          <div class="card-body bordes">
+            <ul class="list-group">
+              <li
+                class="list-group-item list-group-item-white d-flex justify-content-between align-items-center"
+              >
+                <a class="text-dark" href="">Abierto</a>
+                <span class="badge-ics badge-pill">10</span>
+              </li>
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-white d-flex justify-content-between align-items-center ">
+                  <a class="text-dark" href="">Respondió</a>
+                  <span class="badge-ics badge-pill">33</span>
+                </li>
+
+                <li class="list-group-item list-group-item-white d-flex justify-content-between align-items-center " >
+                    <a class="text-dark" href="">Mis tickets</a>
+                    <span class="badge-ics badge-pill">12</span>
+                </li>
+
+                <li class="list-group-item list-group-item-white d-flex justify-content-between align-items-center">
+                    <a class="text-dark" href="">Vencido</a>
+                    <span class="badge-ics badge-pill">14</span>
+                </li>
+
+                <li class="list-group-item list-group-item-white d-flex justify-content-between align-items-center">
+                    <a class="text-dark" href="">Cerrado</a>
+                    <span class="badge-ics badge-pill">3486</span>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mt-5 border border-dark">
+          <div class="card-header bg-white text-black">
+            <h4><i class="fas fa-align-justify"></i> Administración</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li
+                class="bg-white list-group-item list-group-item-secondary d-flex justify-content-between align-items-center"
+              >
+                <a class="text-dark" href="#">Mi perfil</a>
+              </li>
+            </ul>
+
+              <ul class="list-group">
+                  <li class="bg-white list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+                    <a class="text-dark" href="#">Directorio del agente</a>
+                  </li>
+            
+              </ul>
+          </div>
+        </div>
+
+        
+
+      </div>
+
+      
+      
+      <div class="col-sm-12 col-md-8">
+        
+        <div class="card border-dark" style="width: 100%">
+          <div class="card-body text-center">
+            <h5 class="card-title">Asunto ticket</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Ticket N° XXXXXX</h6>
+           <div class="row">
+                <div class="col">
+                  <b>Estado:&nbsp;</b>
+                  <p>Procesando</p>
+                </div>
+                <div class="col">
+                  <b>Prioridad:&nbsp;</b>
+                  <p>Normal</p>
+                </div>
+                <div class="col">
+                  <b>Departamento:&nbsp;</b>
+                  <p>Soporte</p>
+                </div>
+                <div class="col">
+                  <b>Fecha creación:&nbsp;</b>
+                  <p>11/11/2021 13:08pm</p>
+                </div>
+                <div class="col">
+                  <b>Asignado a:&nbsp;</b>
+                  <p>Fernando Ale</p>
+                </div>
+                <div class="col">
+                  <b>Tema de ayuda:&nbsp;</b>
+                  <p>Ingreso/Egreso</p>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="card mr-5 mb-3 border border-dark mt-3">
+
+          <div class="card-header d-flex bg-danger">
+            
+            <div class="col-5 text-white text-left">11/11/2021 13:08 pm</div>
+            <div class="col-2"></div>
+            <div class="col-5 text-white text-right">Juan</div>
+          </div>
+  
+          <div class="card-body">
+          PROBLEMA
+          </div>
+        </div>
+        
+        <div class="card ml-5 mb-3 border border-dark">
+          <div class="d-flex card-header bg-white ">
+            <div class="col-5 text-dark text-left">15/11/2021 11:18 am</div>
+            <div class="col-2"></div>
+            <div class="col-5 text-dark text-right">Fernando Ale</div>
+          </div>
+  
+          <div class="card-body bg-danger text-white">
+          RESPUESTA
+          </div>
+        </div>
+
+        .  
+        . 
+        .
+        
+        <div class="card ml-5 mb-3 border border-dark">
+          <div class="d-flex card-header bg-white ">
+            <div class="col-5 text-dark text-left">15/11/2021 11:18 am</div>
+            <div class="col-2"></div>
+            <div class="col-5 text-dark text-right">Fernando Ale</div>
+          </div>
+  
+          <div class="card-body bg-danger text-white">
+          Cierro ticket
+          </div>
+        </div>
+
+
+        <div class="warpper">
+          <input class="radio" id="one" name="group" type="radio" checked>
+          <input class="radio" id="two" name="group" type="radio">
+          <input class="radio" id="three" name="group" type="radio">
+          <input class="radio" id="four" name="group" type="radio">
+          <div class="tabs">
+          <label class="tab" id="one-tab" for="one">Publicar respuesta</label>
+          <label class="tab" id="two-tab" for="two">Nota interna</label>
+          <label class="tab" id="three-tab" for="three">Reasignar ticket</label>
+          <label class="tab" id="four-tab" for="four">Transferir ticket</label>
+            </div>
+          <div class="panels">
+          <div class="panel" id="one-panel">
+            <div class="panel-title align-items-center">Publicar respuesta</div>
+            <div class="card-body">
+              <textarea placeholder="Ingresá tu respuesta..." class="form-control" name="editor1">
+              </textarea>
+              <b>Estado del ticket:</b>
+              <select class="mt-2" name="estado">
+                <option>Abierto</option>
+                <option>Respondido</option>
+                <option>Cerrado</option>
+              </select>
+              <button class="btn btn-danger mt-2 btn-block">Publicar</button>
+              
+            </div>
+          </div>
+
+          <div class="panel" id="two-panel">
+            <div class="panel-title">Nota interna</div>
+            <div class="card-body">
+              <textarea class="form-control" name="editor2">
+                Ingresá comentario para nota interna...
+              </textarea>
+              <b>Estado del ticket:</b>
+              <select class="mt-2" name="estado">
+                <option>Abierto</option>
+                <option>Respondido</option>
+                <option>Cerrado</option>
+              </select> 
+              <button class="btn btn-danger mt-2 btn-block">Publicar</button>
+            </div>
+          </div>
+
+          <div class="panel" id="three-panel">
+            <div class="panel-title">Reasignación de ticket</div>
+            <div class="card-body">
+              <textarea class="form-control" name="editor3">
+                Ingresá tu comentario para realizar la reasignación...
+              </textarea>
+            </div>
+            <b>Estado del ticket:</b>
+              <select class="mt-2" name="estado">
+                <option>Abierto</option>
+                <option>Respondido</option>
+                <option>Cerrado</option>
+              </select>
+            <button class="btn btn-danger btn-block mt-1">Reasignar</button>
+          </div>
+
+          <div class="panel" id="four-panel">
+            <div class="panel-title">Transferencia de departamento</div>
+            <div class="card-body">
+              <textarea class="form-control" name="editor4">
+                Ingresá los motivos de la transferencia (opcional)
+              </textarea>
+            </div>
+            <b>Estado del ticket:</b>
+              <select class="mt-2" name="estado">
+                <option>Abierto</option>
+                <option>Respondido</option>
+                <option>Cerrado</option>
+              </select>
+            <button class="btn btn-danger btn-block mt-1">Transferir ticket</button>
+          </div>
+
+        </div>
+        </div>
+
+    
+
+          
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<footer id="main-footer" class="bg-danger text-white mt-5 p-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="lead text-center">
+          2021 - Todos los derechos reservados &copy;
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--INCLUSIÓN CKEDITOR (FORMATEAR TEXTO)-->
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("editor1");
+        CKEDITOR.replace("editor2");
+        CKEDITOR.replace("editor3");
+        CKEDITOR.replace("editor4");
+
+
+    </script>
+
+    <!--COLAPSABLES-->
+    <script>
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+
+      function openTab(evt, tabName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+
+
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      } 
+
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    </script>
+    
+
+</body>
+</html>

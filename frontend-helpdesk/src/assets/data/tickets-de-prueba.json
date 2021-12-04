@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Notebook rota",
+    "date": "2021-4-12",
+    "status": "Abierto",
+    "history":[
+      {
+        "date": "2021-4-12",
+        "mensaje": "La computadora no prende",
+        "from": "Juan Perez",
+        "status": "open"
+      },
+      {
+        "date": "2021-4-12",
+        "mensaje": "Traela el miércoles y la revisaremos...",
+        "from": "Fernando Ale",
+        "status": "answered"
+      },
+      {
+        "date": "2021-4-12",
+        "mensaje": "Tema solucionado, cierro ticket",
+        "from": "Juan Perez",
+        "status": "closed"
+      }
+
+    ]
+  }
+]

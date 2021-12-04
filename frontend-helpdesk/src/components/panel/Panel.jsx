@@ -31,7 +31,7 @@ const Panel = ({
   };
 
   return (
-    <Card className="panel my-3">
+    <Card className=" my-3">
       <Card.Header className="py-3">
         <h4 className="text-center m-0 d-flex justify-content-center align-items-center gap-2">
           <BsQuestionCircleFill /> Panel de tickets

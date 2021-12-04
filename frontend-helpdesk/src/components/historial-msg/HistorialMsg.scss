@@ -1,0 +1,28 @@
+//Usar flexbox para separar los mensajes horizontalmente
+.historial {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.historial:nth-child(even){
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.creador{
+  padding: 0.5rem;
+  
+}
+.fecha{
+  text-align: center;
+  padding-bottom: 0.5rem;
+  
+}
+.mensaje{
+  padding: 1rem;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 0.75rem;
+}
